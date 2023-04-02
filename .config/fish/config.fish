@@ -10,7 +10,6 @@ end
 
 alias yt-dlp="yt-dlp --cookies-from-browser firefox"
 alias nvim="nvim --clean"
-alias ssh="kitty +kitten ssh"
 
 set -gx EDITOR nvim
 
