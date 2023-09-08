@@ -24,8 +24,8 @@ function update-mirrors --description 'Fetch new mirrors and sort them by speed'
 end
 
 alias yt-dlp="yt-dlp --cookies-from-browser firefox"
-alias ls="exa"
-alias l='exa -l --all --group-directories-first --git'
+alias ls="eza"
+alias l='eza -l --all --group-directories-first --git'
 alias hx="helix"
 
 set -gx EDITOR helix
