@@ -33,3 +33,4 @@ set -gx EDITOR helix
 starship init fish | source
 zoxide init fish | source
 direnv hook fish | source
+atuin init fish --disable-up-arrow | source
