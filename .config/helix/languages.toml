@@ -1,14 +1,4 @@
 [[language]]
-name = "python"
-auto-format = true
-formatter = { command = 'black', args = ["--quiet", "-"] }
-language-servers = ["pyright"]
-
-[[language]]
 name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["fmt", "--option", "array_auto_expand=false", "-"] }
-
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
