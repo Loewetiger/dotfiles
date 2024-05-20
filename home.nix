@@ -80,6 +80,7 @@
     enable = true;
     userName = "Leon Hajdari";
     userEmail = "loewetiger@tuta.io";
+    difftastic.enable = true;
   };
 
   programs.helix = {
@@ -182,6 +183,8 @@
   programs.yt-dlp.enable = true;
   
   programs.lazygit.enable = true;
+
+  programs.less.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
