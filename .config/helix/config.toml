@@ -1,8 +1,0 @@
-theme = "onedark"
-
-[editor]
-line-number = "relative"
-bufferline = "multiple"
-
-[editor.lsp]
-display-messages = true

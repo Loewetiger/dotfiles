@@ -1,4 +1,0 @@
-[[language]]
-name = "toml"
-auto-format = true
-formatter = { command = "taplo", args = ["fmt", "--option", "array_auto_expand=false", "-"] }
