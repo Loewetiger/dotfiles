@@ -22,8 +22,6 @@
   home.packages = with pkgs; [
     fd
     dua
-    fzf
-    devenv
 
     # Dependencies for Helix. Could be specified in the languages section, but
     # I strongly dislike the hx --health output with the nix paths.
@@ -78,6 +76,7 @@
   #  /etc/profiles/per-user/leon/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    # Only display direnv errors (removes a lot of noise)
     DIRENV_LOG_FORMAT = "";
   };
 
@@ -153,10 +152,12 @@
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
     '';
-    shellAliases = {
-      ls = "eza";
-      l = "eza -l --all --group-directories-first --git";
-    };
+  };
+
+  programs.fzf = {
+    enable = true;
+    defaultCommand = "hx";
+    defaultOptions = [ "--preview 'bat -n --color=always --line-range :500 {}'" ];
   };
 
   programs.starship = {
