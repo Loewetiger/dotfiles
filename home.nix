@@ -89,6 +89,8 @@
       enable = true;
       options = {
         side-by-side = true;
+        hyperlinks = true;
+        diff-so-fancy = true;
       };
     };
   };
