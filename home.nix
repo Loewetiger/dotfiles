@@ -108,28 +108,11 @@
     languages = {
       language = [
         {
-          name = "python";
-          language-servers = [ "pyright" "ruff" ];
-          formatter = {
-            command = "black";
-            args = [ "--line-length" "88" "--quiet" "-" ];
-          };
-        }
-        {
           name = "nix";
           formatter.command = "nixpkgs-fmt";
           auto-format = true;
         }
       ];
-
-      language-server = {
-        pyright.config.python.analysis.typeCheckingMode = "basic";
-
-        ruff = {
-          command = "ruff-lsp";
-          config.settings.args = [ "--ignore" "E501" ];
-        };
-      };
     };
   };
 
