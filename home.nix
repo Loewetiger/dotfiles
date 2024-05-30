@@ -136,6 +136,20 @@
 
   programs.fish = {
     enable = true;
+    functions = {
+      hmu = {
+        body = ''
+          set start_dir (pwd)
+          cd ~/.config/home-manager
+            if test -d .git
+                git pull
+            end
+          home-manager switch
+          cd $start_dir
+        '';
+        description = "Fetch the newest changes from git and run home-manager switch";
+      };
+    };
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
     '';
@@ -205,9 +219,15 @@
 
   programs.less.enable = true;
 
+  # Home Manager Diff
   programs.hmd = {
     enable = true;
     runOnSwitch = true;
+  };
+
+  nix.gc = {
+    automatic = true;
+    options = "-d";
   };
 
   # Let Home Manager install and manage itself.
