@@ -156,8 +156,7 @@
 
   programs.fzf = {
     enable = true;
-    defaultCommand = "hx";
-    defaultOptions = [ "--preview 'bat -n --color=always --line-range :500 {}'" ];
+    defaultOptions = [ "--preview 'bat -n --color always -r :500 {}'" ];
   };
 
   programs.starship = {
