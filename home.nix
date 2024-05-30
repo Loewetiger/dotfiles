@@ -5,7 +5,7 @@
   # manage.
   home.username = "leon";
   home.homeDirectory = "/home/leon";
-  
+
   targets.genericLinux.enable = true;
 
   # This value determines the Home Manager release that your configuration is
@@ -21,10 +21,14 @@
   # environment.
   home.packages = with pkgs; [
     fd
-    nil # nix lsp
     dua
     fzf
     devenv
+
+    # Dependencies for Helix. Could be specified in the languages section, but
+    # I strongly dislike the hx --health output with the nix paths.
+    nil
+    nixpkgs-fmt
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -46,7 +50,7 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    
+
     ".config/alacritty/alacritty.toml".source = ./alacritty.toml;
     ".wezterm.lua".source = ./.wezterm.lua;
 
@@ -76,12 +80,17 @@
   home.sessionVariables = {
     DIRENV_LOG_FORMAT = "";
   };
-  
+
   programs.git = {
     enable = true;
     userName = "Leon Hajdari";
     userEmail = "loewetiger@tuta.io";
-    # difftastic.enable = true;
+    delta = {
+      enable = true;
+      options = {
+        side-by-side = true;
+      };
+    };
   };
 
   programs.helix = {
@@ -96,15 +105,20 @@
       };
     };
     languages = {
-      language = [{
-        name = "python";
-        language-servers = [ "pyright" "ruff" ];
-
-        formatter = {
-          command = "black";
-          args = [ "--line-length" "88" "--quiet" "-" ];
-        };
-      }];
+      language = [
+        {
+          name = "python";
+          language-servers = [ "pyright" "ruff" ];
+          formatter = {
+            command = "black";
+            args = [ "--line-length" "88" "--quiet" "-" ];
+          };
+        }
+        {
+          language = "nix";
+          formatter.command = "nixpkgs-fmt";
+        }
+      ];
 
       language-server = {
         pyright.config.python.analysis.typeCheckingMode = "basic";
@@ -174,7 +188,7 @@
   programs.direnv = {
     enable = true;
   };
-  
+
   programs.bat.enable = true;
 
   programs.eza.enable = true;
@@ -182,7 +196,7 @@
   programs.ripgrep.enable = true;
 
   programs.yt-dlp.enable = true;
-  
+
   programs.lazygit.enable = true;
 
   programs.less.enable = true;
