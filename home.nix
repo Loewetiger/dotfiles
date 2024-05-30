@@ -21,7 +21,6 @@
   # environment.
   home.packages = with pkgs; [
     dua
-    fd
 
     # Dependencies for Helix. Could be specified in the languages section, but
     # I strongly dislike the hx --health output with the nix paths.
@@ -82,7 +81,7 @@
 
   programs.git = {
     enable = true;
-    userName = "Leon Hajdari";
+    userName = "Loewetiger";
     userEmail = "loewetiger@tuta.io";
     delta = {
       enable = true;
@@ -222,6 +221,8 @@
   programs.eza.enable = true;
 
   programs.ripgrep.enable = true;
+
+  programs.fd.enable = true;
 
   programs.yt-dlp.enable = true;
 
