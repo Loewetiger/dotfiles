@@ -44,6 +44,7 @@
     # ".screenrc".source = dotfiles/screenrc;
     
     ".config/alacritty/alacritty.toml".source = ./alacritty.toml;
+    ".wezterm.lua".source = ./.wezterm.lua;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
