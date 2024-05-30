@@ -115,7 +115,7 @@
           };
         }
         {
-          language = "nix";
+          name = "nix";
           formatter.command = "nixpkgs-fmt";
         }
       ];
