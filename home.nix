@@ -24,6 +24,7 @@
     nil # nix lsp
     dua
     fzf
+    devenv
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -80,7 +81,7 @@
     enable = true;
     userName = "Leon Hajdari";
     userEmail = "loewetiger@tuta.io";
-    difftastic.enable = true;
+    # difftastic.enable = true;
   };
 
   programs.helix = {
