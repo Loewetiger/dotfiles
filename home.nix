@@ -142,6 +142,8 @@
           set mime (file -b --mime-type $argv)
 
           switch $mime[1]
+            case "inode/directory"
+              ${pkgs.tre-command}/bin/tre -d -c always -l 3 $argv
             case "text/*"
               bat $bat_args $argv
             case application/json
