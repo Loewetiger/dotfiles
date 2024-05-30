@@ -118,6 +118,10 @@
 
   programs.fish = {
     enable = true;
+    plugins = [{
+      name = "fzf";
+      src = pkgs.fishPlugins.fzf-fish.src;
+    }];
     functions = {
       hmu = {
         description = "Fetch the newest changes from git and run home-manager switch";
