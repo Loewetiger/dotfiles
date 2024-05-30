@@ -157,6 +157,11 @@
     flags = [
       "--disable-up-arrow"
     ];
+    settings = {
+      update_check = false;
+      keys.scroll_exits = false;
+      sync.records = true;
+    };
   };
 
   programs.zoxide = {
