@@ -19,10 +19,11 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.fd
-    pkgs.nil # nix lsp
-    pkgs.dua
+  home.packages = with pkgs; [
+    fd
+    nil # nix lsp
+    dua
+    fzf
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
