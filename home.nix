@@ -138,16 +138,16 @@
     enable = true;
     functions = {
       hmu = {
+        description = "Fetch the newest changes from git and run home-manager switch";
         body = ''
-          set start_dir (pwd)
+          set -l start_dir (pwd)
           cd ~/.config/home-manager
-            if test -d .git
-                git pull
-            end
+          if test -d .git
+              git pull
+          end
           home-manager switch
           cd $start_dir
         '';
-        description = "Fetch the newest changes from git and run home-manager switch";
       };
     };
     interactiveShellInit = ''
