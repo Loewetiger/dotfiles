@@ -187,6 +187,11 @@
 
   programs.less.enable = true;
 
+  programs.hmd = {
+    enable = true;
+    runOnSwitch = true;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
