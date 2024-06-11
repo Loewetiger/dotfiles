@@ -21,6 +21,7 @@
   # environment.
   home.packages = with pkgs; [
     dua
+    xh
 
     # Dependencies for Helix. Could be specified in the languages section, but
     # I strongly dislike the hx --health output with the nix paths.
@@ -143,7 +144,7 @@
 
           switch $mime[1]
             case "inode/directory"
-              ${pkgs.tre-command}/bin/tre -d -c always -l 3 $argv
+              eza --tree -L 3 --icons always --color always $argv
             case "text/*"
               bat $bat_args $argv
             case application/json
@@ -220,7 +221,10 @@
 
   programs.bat.enable = true;
 
-  programs.eza.enable = true;
+  programs.eza = {
+    enable = true;
+    icons = true;
+  };
 
   programs.ripgrep.enable = true;
 
