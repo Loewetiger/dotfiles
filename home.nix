@@ -157,14 +157,18 @@
           end
         '';
       };
+      # Overwrite the preview function of fzf.fish
+      _fzf_preview_file = {
+        description = "Print a preview for the given file based on its file type.";
+        body = ''
+          preview "$argv"
+        '';
+      };
     };
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
     '';
   };
-
-  # Use the custom preview function for fzf.fish
-  home.sessionVariables.fzf_preview_file_cmd = "preview";
 
   programs.fzf = {
     enable = true;
