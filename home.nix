@@ -258,7 +258,17 @@
 
   programs.yt-dlp.enable = true;
 
-  programs.lazygit.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui.spinner = {
+        frames = [ "" "" "" "" "" "" ];
+        rate = 50;
+      };
+      gui.nerdFontsVersion = "3";
+      update.method = "never";
+    };
+  };
 
   programs.less.enable = true;
 
