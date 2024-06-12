@@ -171,6 +171,27 @@
     '';
   };
 
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    escapeTime = 0;
+    historyLimit = 10000;
+    keyMode = "vi";
+    mouse = true;
+    prefix = "C-a";
+    extraConfig = ''
+      set -g default-terminal 'tmux-256color'
+      set -as terminal-overrides ",alacritty*:Tc"
+
+      # only show status bar if there is more then one window
+      set -g status off
+      set-hook -g after-new-window      'if "[ #{session_windows} -gt 1 ]" "set status on"'
+      set-hook -g after-kill-pane       'if "[ #{session_windows} -lt 2 ]" "set status off"'
+      set-hook -g pane-exited           'if "[ #{session_windows} -lt 2 ]" "set status off"'
+      set-hook -g window-layout-changed 'if "[ #{session_windows} -lt 2 ]" "set status off"'
+    '';
+  };
+
   programs.fzf = {
     enable = true;
     defaultOptions = [ "--preview 'preview {}'" ];
