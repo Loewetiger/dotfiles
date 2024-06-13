@@ -173,15 +173,20 @@
 
   programs.tmux = {
     enable = true;
+    aggressiveResize = true;
+    baseIndex = 1;
     clock24 = true;
+    customPaneNavigationAndResize = true;
     escapeTime = 0;
-    historyLimit = 10000;
+    historyLimit = 50000;
     keyMode = "vi";
     mouse = true;
     prefix = "C-a";
     extraConfig = ''
       set -g default-terminal 'tmux-256color'
       set -as terminal-overrides ",alacritty*:Tc"
+
+      set-option -g status-position top
 
       # only show status bar if there is more then one window
       set -g status off
@@ -262,6 +267,7 @@
     enable = true;
     settings = {
       gui.spinner = {
+        # Custom spinner from FiraCode
         frames = [ "" "" "" "" "" "" ];
         rate = 50;
       };
