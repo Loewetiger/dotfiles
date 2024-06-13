@@ -182,6 +182,7 @@
     keyMode = "vi";
     mouse = true;
     prefix = "C-a";
+    sensibleOnTop = false;
     extraConfig = ''
       set -g default-terminal 'tmux-256color'
       set -as terminal-overrides ",alacritty*:Tc"
