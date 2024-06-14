@@ -103,6 +103,7 @@
     settings = {
       theme = "onedark";
       editor = {
+        mouse = false;
         line-number = "relative";
         bufferline = "multiple";
         lsp.display-messages = true;
