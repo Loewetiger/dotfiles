@@ -50,14 +50,16 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    ".config/alacritty/alacritty.toml".source = ./alacritty.toml;
-    ".wezterm.lua".source = ./.wezterm.lua;
-
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+  };
+
+  xdg.configFile = {
+    "alacritty/alacritty.toml".source = ./files/alacritty.toml;
+    "wezterm/wezterm.lua".source = ./files/wezterm.lua;
   };
 
   # Home Manager can also manage your environment variables through
