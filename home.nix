@@ -27,6 +27,7 @@
     # Dependencies for Helix. Could be specified in the languages section, but
     # I strongly dislike the hx --health output with the nix paths.
     nil
+    nixd
     nixpkgs-fmt
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -115,8 +116,12 @@
           name = "nix";
           formatter.command = "nixpkgs-fmt";
           auto-format = true;
+          language-servers = [ "nil" "nixd" ];
         }
       ];
+      language-server.nixd = {
+        command = "nixd";
+      };
     };
   };
 
