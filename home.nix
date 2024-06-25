@@ -127,6 +127,9 @@
 
   programs.fish = {
     enable = true;
+    shellAbbrs = {
+      lg = "lazygit";
+    };
     plugins = [{
       name = "fzf";
       src = pkgs.fishPlugins.fzf-fish.src;
