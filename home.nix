@@ -213,6 +213,7 @@
         loaded_msg = "";
         unloaded_msg = "";
       };
+      elixir.symbol = " ";
       golang.symbol = " ";
       nix_shell.symbol = " ";
       python.symbol = " ";
