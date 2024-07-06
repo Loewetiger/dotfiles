@@ -22,6 +22,7 @@
   home.packages = with pkgs; [
     dua
     jnv
+    lnav
     xh
 
     # Dependencies for Helix. Could be specified in the languages section, but
