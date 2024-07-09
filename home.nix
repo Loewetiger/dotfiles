@@ -21,9 +21,7 @@
   # environment.
   home.packages = with pkgs; [
     dua
-    jnv
     lnav
-    xh
 
     # Dependencies for Helix. Could be specified in the languages section, but
     # I strongly dislike the hx --health output with the nix paths.
