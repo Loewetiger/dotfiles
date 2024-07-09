@@ -89,12 +89,23 @@
     enable = true;
     userName = "Loewetiger";
     userEmail = "loewetiger@tuta.io";
+    extraConfig = {
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "default";
+      };
+      init.defaultBranch = "main";
+      merge.conflictstyle = "zdiff3";
+      rebase.autosquash = true;
+      rerere.enabled = true;
+      log.date = "iso";
+      branch.sort = "-committerdate";
+    };
     delta = {
       enable = true;
       options = {
         side-by-side = true;
         hyperlinks = true;
-        diff-so-fancy = true;
       };
     };
   };
@@ -271,7 +282,13 @@
     };
   };
 
-  programs.less.enable = true;
+  programs.less = {
+    enable = true;
+    keys = ''
+      #env
+      LESS = -R
+    '';
+  };
 
   # Home Manager Diff
   programs.hmd = {
