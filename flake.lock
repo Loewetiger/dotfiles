@@ -146,11 +146,29 @@
         "type": "github"
       }
     },
+    "pond": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690624357,
+        "narHash": "sha256-xG2dQ0hzQMNGV2NreLzXQWeDE5QJc0j6A5JBXmSMavk=",
+        "owner": "alice-lefebvre",
+        "repo": "pond",
+        "rev": "1b74089f0d44f13efe8f695849d7cb8c7c6643de",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "alice-lefebvre",
+        "repo": "pond",
+        "rev": "1b74089f0d44f13efe8f695849d7cb8c7c6643de",
+        "type": "gitlab"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "home-manager-diff": "home-manager-diff",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "pond": "pond"
       }
     },
     "systems": {
