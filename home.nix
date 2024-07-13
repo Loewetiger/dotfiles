@@ -24,6 +24,7 @@
     pond
 
     dua
+    just
     lnav
 
     # Dependencies for Helix. Could be specified in the languages section, but
