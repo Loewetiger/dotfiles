@@ -12,20 +12,16 @@
       url = "github:pedorich-n/home-manager-diff";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    pond = {
-      url = "gitlab:alice-lefebvre/pond/1b74089f0d44f13efe8f695849d7cb8c7c6643de";
-      flake = false;
-    };
   };
 
-  outputs = { nixpkgs, home-manager, home-manager-diff, pond, ... }:
+  outputs = { nixpkgs, home-manager, home-manager-diff, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
           (final: prev: {
-            pond = prev.callPackage ./pond.nix { inherit pond; };
+            pond = final.callPackage ./pkgs/pond { };
           })
         ];
       };

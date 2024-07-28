@@ -1,10 +1,15 @@
-{ lib, stdenv, pond, ncurses }:
+{ lib, stdenv, fetchFromGitLab, ncurses }:
 
 stdenv.mkDerivation rec {
   pname = "pond";
   version = "1.0.0";
 
-  src = pond;
+  src = fetchFromGitLab {
+    owner = "alice-lefebvre";
+    repo = "pond";
+    rev = "1b74089f0d44f13efe8f695849d7cb8c7c6643de";
+    hash = "sha256-xG2dQ0hzQMNGV2NreLzXQWeDE5QJc0j6A5JBXmSMavk=";
+  };
 
   buildInputs = [ ncurses ];
 
@@ -22,7 +27,7 @@ stdenv.mkDerivation rec {
     description = "A soothing in-terminal idle screen with frogs and lilypads";
     homepage = "https://gitlab.com/alice-lefebvre/pond";
     license = licenses.gpl3;
-    maintainers = [ maintainers.yourgithubusername ];
+    maintainers = [ ];
     platforms = platforms.unix;
   };
 }
