@@ -26,6 +26,7 @@
     dua
     just
     lnav
+    pv
     termscp
 
     # Dependencies for Helix. Could be specified in the languages section, but
