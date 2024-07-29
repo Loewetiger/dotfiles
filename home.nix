@@ -22,6 +22,7 @@
   home.packages = with pkgs; [
     neo
     pond
+    tetrs
 
     dua
     just

@@ -22,6 +22,7 @@
         overlays = [
           (final: prev: {
             pond = final.callPackage ./pkgs/pond { };
+            tetrs = final.callPackage ./pkgs/tetrs { };
           })
         ];
       };
