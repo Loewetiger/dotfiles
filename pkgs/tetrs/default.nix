@@ -3,7 +3,7 @@
 stdenv.mkDerivation rec {
   author = "Strophox";
   pname = "tetrs";
-  version = "0.1.5";
+  version = "0.1.6";
 
   src = fetchzip {
     url = "https://github.com/${author}/${pname}/releases/download/v${version}/x86_64-unknown-linux-gnu.zip";
