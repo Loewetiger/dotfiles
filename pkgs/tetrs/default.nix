@@ -3,11 +3,11 @@
 stdenv.mkDerivation rec {
   author = "Strophox";
   pname = "tetrs";
-  version = "0.1.7";
+  version = "0.1.8";
 
   src = fetchzip {
     url = "https://github.com/${author}/${pname}/releases/download/v${version}/x86_64-unknown-linux-gnu.zip";
-    hash = "sha256-UVsteV5sQ1Tl6OGnH3fsSs4RUOdS6yiqMz2SzpMbm4M=";
+    hash = "sha256-7PU9lPzQ2f/yfwvzsC07XDbDoPsOoD93MQWZXw2s/Ls=";
   };
 
   installPhase = ''
