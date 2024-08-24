@@ -288,6 +288,8 @@
     };
   };
 
+  programs.git-cliff.enable = true;
+
   programs.less = {
     enable = true;
     keys = ''
