@@ -115,6 +115,8 @@
     };
   };
 
+  programs.jujutsu.enable = true;
+
   programs.helix = {
     enable = true;
     defaultEditor = true;
