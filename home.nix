@@ -25,6 +25,7 @@
     tetrs
 
     dua
+    git-absorb
     just
     lnav
     pv
