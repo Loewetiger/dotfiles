@@ -269,7 +269,7 @@
 
   programs.eza = {
     enable = true;
-    icons = true;
+    icons = "auto";
   };
 
   programs.ripgrep.enable = true;
