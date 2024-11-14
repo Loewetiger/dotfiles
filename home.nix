@@ -115,7 +115,15 @@
     };
   };
 
-  programs.jujutsu.enable = true;
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      ui = {
+        pager = "less -FR";
+        default-command = [ "log" ];
+      };
+    };
+  };
 
   programs.helix = {
     enable = true;
