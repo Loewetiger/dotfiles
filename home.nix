@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  vars = import ./vars.nix;
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -92,8 +95,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Loewetiger";
-    userEmail = "loewetiger@tuta.io";
+    userName = vars.git.name;
+    userEmail = vars.git.email;
     extraConfig = {
       diff = {
         algorithm = "histogram";
@@ -118,6 +121,10 @@
   programs.jujutsu = {
     enable = true;
     settings = {
+      user = {
+        name = vars.git.name;
+        email = vars.git.email;
+      };
       ui = {
         pager = "less -FR";
         default-command = [ "log" ];
