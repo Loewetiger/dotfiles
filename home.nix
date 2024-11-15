@@ -250,7 +250,10 @@ in
       elixir.symbol = " ";
       gleam.symbol = " ";
       golang.symbol = " ";
-      nix_shell.symbol = " ";
+      nix_shell = {
+        format = "via [$symbol$state]($style) ";
+        symbol = " ";
+      };
       python.symbol = " ";
       rust.symbol = " ";
     };
