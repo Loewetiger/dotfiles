@@ -28,6 +28,7 @@ in
     tetrs
 
     dua
+    fx
     git-absorb
     just
     lnav
