@@ -113,7 +113,6 @@ in
     delta = {
       enable = true;
       options = {
-        side-by-side = true;
         hyperlinks = true;
       };
     };
@@ -252,6 +251,7 @@ in
       elixir.symbol = " ";
       gleam.symbol = " ";
       golang.symbol = " ";
+      haskell.symbol = " ";
       nix_shell = {
         format = "via [$symbol$state]($style) ";
         symbol = " ";
