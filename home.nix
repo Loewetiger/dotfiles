@@ -70,7 +70,6 @@ in
 
   xdg.configFile = {
     "alacritty/alacritty.toml".source = ./files/alacritty.toml;
-    "wezterm/wezterm.lua".source = ./files/wezterm.lua;
   };
 
   # Home Manager can also manage your environment variables through
