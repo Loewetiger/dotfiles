@@ -33,6 +33,7 @@ in
     just
     lnav
     pv
+    television
 
     # Dependencies for Helix. Could be specified in the languages section, but
     # I strongly dislike the hx --health output with the nix paths.
