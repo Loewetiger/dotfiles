@@ -284,6 +284,8 @@ in
     nix-direnv.enable = true;
   };
 
+  programs.mise.enable = true;
+
   programs.bat.enable = true;
 
   programs.eza = {
