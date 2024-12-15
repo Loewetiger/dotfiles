@@ -30,7 +30,6 @@ in
     dua
     fx
     git-absorb
-    just
     lnav
     pv
     television
