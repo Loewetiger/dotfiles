@@ -109,6 +109,7 @@ in
       log.date = "iso";
       branch.sort = "-committerdate";
     };
+    ignores = [ ".jj" ];
     delta = {
       enable = true;
       options = {
