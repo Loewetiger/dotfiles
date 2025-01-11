@@ -4,6 +4,7 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,15 +19,17 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, home-manager-diff, nix-index-database, ... }:
+  outputs = { nixpkgs, nixpkgs-master, home-manager, home-manager-diff, nix-index-database, ... }:
     let
       system = "x86_64-linux";
+      pkgs-master = import nixpkgs-master { inherit system; };
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
           (final: prev: {
             pond = final.callPackage ./pkgs/pond { };
             tetrs = final.callPackage ./pkgs/tetrs { };
+            usage = pkgs-master.usage;
           })
         ];
       };
