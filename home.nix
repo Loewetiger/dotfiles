@@ -1,8 +1,5 @@
-{ config, pkgs, ... }:
+{ pkgs, vars, ... }:
 
-let
-  vars = import ./vars.nix;
-in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -177,7 +174,7 @@ in
           if test -d .git
               git pull
           end
-          home-manager switch
+          home-manager switch --flake "path:."
           cd $start_dir
         '';
       };
