@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitLab, ncurses }:
+{ lib, stdenv, fetchFromGitLab, ncurses, gcc }:
 
 stdenv.mkDerivation rec {
   pname = "pond";
@@ -11,16 +11,32 @@ stdenv.mkDerivation rec {
     hash = "sha256-xG2dQ0hzQMNGV2NreLzXQWeDE5QJc0j6A5JBXmSMavk=";
   };
 
-  buildInputs = [ ncurses ];
+  nativeBuildInputs = [
+    ncurses
+    gcc
+  ];
+
+
+  # copied from https://gitlab.com/Morgenkaff/flake-for-pond/
+  patchPhase = ''
+    sed -i 's/lcurses/lncurses/g' Makefile
+    sed -i 's/o bin\/pond/o pond/g' Makefile
+
+    sed -i 's/install: bin\/pond/install : pond/g' Makefile
+    sed -i '/rm -f \/usr\/local\/games\/pond/d' Makefile
+    sed -i '/cp bin/c\	cp pond bin/pond' Makefile
+
+
+    sed -i '/uninstall/,$d' Makefile
+  '';
 
   buildPhase = ''
-    mkdir -p bin
-    $CC -std=gnu99 -Wall -Os pond.c -lncurses -o bin/pond
+    make
   '';
 
   installPhase = ''
     mkdir -p $out/bin
-    cp bin/pond $out/bin/pond
+    mv pond $out/bin/
   '';
 
   meta = with lib; {
