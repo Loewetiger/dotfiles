@@ -169,13 +169,12 @@
       hmu = {
         description = "Fetch the newest changes from git and run home-manager switch";
         body = ''
-          set -l start_dir (pwd)
-          cd ~/.config/home-manager
+          pushd ~/.config/home-manager
           if test -d .git
               git pull
           end
           home-manager switch --flake "path:."
-          cd $start_dir
+          popd
         '';
       };
       # Based on https://github.com/kidonng/dotfiles/blob/4356fb2be6db24e9433826a86f2aa1d5c5b671ed/.config/fish/functions/__fzf_preview_file_content.fish
