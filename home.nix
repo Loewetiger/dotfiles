@@ -126,6 +126,7 @@
         pager = "less -FR";
         default-command = [ "log" ];
       };
+      git.subprocess = true;
     };
   };
 
