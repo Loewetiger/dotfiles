@@ -320,6 +320,8 @@
     '';
   };
 
+  programs.command-not-found.enable = false;
+
   # Home Manager Diff
   programs.hmd = {
     enable = true;
