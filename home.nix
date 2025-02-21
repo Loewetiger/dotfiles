@@ -217,6 +217,7 @@
 
   programs.zellij = {
     enable = true;
+    enableFishIntegration = false;
     settings = {
       pane_frames = false;
       ui.pane_frames.hide_session_name = true;
