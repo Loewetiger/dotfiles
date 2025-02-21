@@ -28,6 +28,7 @@
     fx
     git-absorb
     lnav
+    oha
     pv
     television
 
