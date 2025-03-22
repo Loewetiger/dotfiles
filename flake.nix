@@ -27,6 +27,7 @@
           (final: prev: {
             pond = final.callPackage ./pkgs/pond { };
             tetrs = final.callPackage ./pkgs/tetrs { };
+            git-who = final.callPackage ./pkgs/git-who { };
           })
         ];
       };

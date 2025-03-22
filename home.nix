@@ -27,6 +27,7 @@
     dua
     fx
     git-absorb
+    git-who
     lnav
     oha
     pv
