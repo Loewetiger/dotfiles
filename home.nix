@@ -137,6 +137,7 @@
     settings = {
       theme = "onedark";
       editor = {
+        true-color = true;
         mouse = false;
         line-number = "relative";
         bufferline = "multiple";
