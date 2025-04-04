@@ -212,7 +212,6 @@
     };
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
-      COMPLETE=fish jj | source
     '';
   };
 
