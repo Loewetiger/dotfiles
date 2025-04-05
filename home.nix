@@ -158,7 +158,7 @@
         }
       ];
       language-server.nixd = {
-        command = "${pkgs.nixd}/bin/nixd-next";
+        command = "${pkgs.nixd}/bin/nixd";
       };
       language-server.typos = {
         command = "${pkgs.typos-lsp}/bin/typos-lsp";
