@@ -336,9 +336,14 @@
     runOnSwitch = true;
   };
 
-  nix.gc = {
-    automatic = true;
-    options = "-d";
+  services.home-manager.autoExpire = {
+    enable = true;
+    timestamp = "-7 days";
+    frequency = "weekly";
+    store = {
+      cleanup = true;
+      options = "-d";
+    };
   };
 
   # Let Home Manager install and manage itself.
