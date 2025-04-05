@@ -26,12 +26,9 @@
 
     dua
     dufs
-    fx
-    git-absorb
     git-who
     lnav
     oha
-    pv
     television
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
