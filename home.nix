@@ -34,12 +34,6 @@
     pv
     television
 
-    # Dependencies for Helix. Could be specified in the languages section, but
-    # I strongly dislike the hx --health output with the nix paths.
-    nil
-    nixd
-    nixpkgs-fmt
-
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -149,9 +143,9 @@
       language = [
         {
           name = "nix";
-          formatter.command = "nixpkgs-fmt";
+          formatter.command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
           auto-format = true;
-          language-servers = [ "nil" "nixd" ];
+          language-servers = [ "nixd" ];
         }
         {
           name = "jjdescription";
@@ -163,7 +157,7 @@
         }
       ];
       language-server.nixd = {
-        command = "nixd";
+        command = "${pkgs.nixd}/bin/nixd-next";
       };
       language-server.typos = {
         command = "${pkgs.typos-lsp}/bin/typos-lsp";
