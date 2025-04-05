@@ -25,6 +25,7 @@
     tetrs
 
     dua
+    dufs
     fx
     git-absorb
     git-who
