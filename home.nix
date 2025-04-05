@@ -153,9 +153,20 @@
           auto-format = true;
           language-servers = [ "nil" "nixd" ];
         }
+        {
+          name = "jjdescription";
+          language-servers = [ "typos" ];
+        }
+        {
+          name = "git-commit";
+          language-servers = [ "typos" ];
+        }
       ];
       language-server.nixd = {
         command = "nixd";
+      };
+      language-server.typos = {
+        command = "${pkgs.typos-lsp}/bin/typos-lsp";
       };
     };
   };
