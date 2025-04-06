@@ -37,6 +37,7 @@
         pager = "less -FR";
         default-command = [ "log" ];
       };
+      hints.resolving-conflicts = false;
     };
   };
 
