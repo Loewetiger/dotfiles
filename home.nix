@@ -34,6 +34,7 @@
     dufs
     git-who
     lnav
+    mergiraf
     oha
     television
 
