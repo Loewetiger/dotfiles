@@ -38,6 +38,9 @@
         default-command = [ "log" ];
       };
       hints.resolving-conflicts = false;
+      aliases = {
+        autofix = [ "resolve" "--tool" "mergiraf" ];
+      };
     };
   };
 
