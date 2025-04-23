@@ -16,6 +16,11 @@
 
   programs.yt-dlp.enable = true;
 
+  programs.tealdeer = {
+    enable = true;
+    enableAutoUpdates = true;
+  };
+
   programs.less = {
     enable = true;
     keys = ''
