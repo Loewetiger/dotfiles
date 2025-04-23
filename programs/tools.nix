@@ -8,6 +8,7 @@
   programs.eza = {
     enable = true;
     icons = "auto";
+    enableNushellIntegration = false;
   };
 
   programs.ripgrep.enable = true;
