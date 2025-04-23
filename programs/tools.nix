@@ -16,6 +16,15 @@
 
   programs.yt-dlp.enable = true;
 
+  programs.television = {
+    enable = true;
+    settings = {
+      ui = {
+        use_nerd_font_icons = true;
+      };
+    };
+  };
+
   programs.tealdeer = {
     enable = true;
     enableAutoUpdates = true;
