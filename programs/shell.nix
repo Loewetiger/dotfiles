@@ -5,6 +5,7 @@
     enable = true;
     shellAbbrs = {
       lg = "lazygit";
+      se = "sudo --preserve-env=PATH env";
     };
     plugins = [{
       name = "fzf";
