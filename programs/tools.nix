@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.mise.enable = true;
@@ -15,6 +15,12 @@
   programs.fd.enable = true;
 
   programs.yt-dlp.enable = true;
+
+  programs.yazi = {
+    enable = true;
+    flavors.onedark = pkgs.onedark-yazi;
+    theme.flavor.dark = "onedark";
+  };
 
   programs.television = {
     enable = true;
