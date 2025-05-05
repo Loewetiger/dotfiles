@@ -36,6 +36,7 @@
     lnav
     mergiraf
     oha
+    sshx
     systemctl-tui
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
