@@ -33,6 +33,7 @@
     dua
     dufs
     git-who
+    jjui
     lnav
     mergiraf
     oha
