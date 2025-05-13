@@ -28,6 +28,7 @@
   home.packages = with pkgs; [
     neo
     pond
+    terminal-rain-lightning
     tetrs
 
     dua
