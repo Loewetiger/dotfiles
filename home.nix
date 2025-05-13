@@ -33,6 +33,7 @@
 
     dua
     dufs
+    fx
     git-who
     jjui
     lnav
