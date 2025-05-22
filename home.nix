@@ -33,6 +33,7 @@
 
     dua
     dufs
+    dysk
     fx
     git-who
     hyperfine
