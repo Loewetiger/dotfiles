@@ -32,6 +32,8 @@
     };
   };
 
+  programs.bottom.enable = true;
+
   programs.tealdeer = {
     enable = true;
     enableAutoUpdates = true;
