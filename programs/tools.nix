@@ -25,9 +25,24 @@
 
   programs.television = {
     enable = true;
+    channels = {
+      default.cable_channel = [
+        {
+          name = "hidden-files";
+          source_command = "fd -I -t f";
+          preview_command = ":files:";
+        }
+        {
+          name = "docker-images";
+          source_command = ''docker image list --format "{{.ID}} {{.Repository}}\t{{.Tag}}\t{{.Size}}"'';
+          preview_command = ''docker image inspect {0} | ${pkgs.jq}/bin/jq -C'';
+        }
+      ];
+    };
     settings = {
       ui = {
         use_nerd_font_icons = true;
+        theme = "onedark";
       };
     };
   };
