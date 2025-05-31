@@ -44,6 +44,7 @@
     oha
     sshx
     systemctl-tui
+    tokei
     xh
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
