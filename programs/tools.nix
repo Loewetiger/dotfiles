@@ -35,7 +35,7 @@
         {
           name = "docker-images";
           source_command = ''docker image list --format "{{.ID}} {{.Repository}}\t{{.Tag}}\t{{.Size}}"'';
-          preview_command = ''docker image inspect {0} | ${pkgs.jq}/bin/jq -C'';
+          preview_command = ''docker image inspect {0} | jq -C'';
         }
       ];
     };
@@ -61,5 +61,7 @@
       LESS = -R
     '';
   };
+
+  programs.jq.enable = true;
 }
 
