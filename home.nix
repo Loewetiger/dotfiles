@@ -42,6 +42,7 @@
     mergiraf
     mprocs
     oha
+    pv
     sshx
     systemctl-tui
     tokei
