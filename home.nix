@@ -45,6 +45,7 @@
     pv
     sshx
     systemctl-tui
+    tabiew
     tokei
     xh
 
