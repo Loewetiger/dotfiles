@@ -40,11 +40,9 @@
     jjui
     lnav
     mergiraf
-    mprocs
     oha
     pv
     sshx
-    systemctl-tui
     tabiew
     tokei
     xh
