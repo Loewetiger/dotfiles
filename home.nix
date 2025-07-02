@@ -101,22 +101,6 @@
     DIRENV_LOG_FORMAT = "";
   };
 
-  # Home Manager Diff
-  programs.hmd = {
-    enable = true;
-    runOnSwitch = true;
-  };
-
-  services.home-manager.autoExpire = {
-    enable = true;
-    timestamp = "-7 days";
-    frequency = "weekly";
-    store = {
-      cleanup = true;
-      options = "-d";
-    };
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

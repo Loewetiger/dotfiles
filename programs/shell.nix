@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.fish = {
@@ -15,7 +15,7 @@
           if test -d .git
               git pull
           end
-          home-manager switch --flake "path:."
+          nh home switch "path:."
           popd
         '';
       };

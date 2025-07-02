@@ -47,6 +47,14 @@
     };
   };
 
+  programs.nh = {
+    enable = true;
+    flake = "path:/home/leon/.config/home-manager";
+    clean = {
+      enable = true;
+    };
+  };
+
   programs.bottom.enable = true;
 
   programs.tealdeer = {
