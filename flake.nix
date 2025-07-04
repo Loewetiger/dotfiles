@@ -21,10 +21,10 @@
         inherit system;
         overlays = [
           (final: prev: {
-            pond = final.callPackage ./pkgs/pond { };
-            tetrs = final.callPackage ./pkgs/tetrs { };
             onedark-yazi = final.callPackage ./pkgs/onedark-yazi { };
+            pond = final.callPackage ./pkgs/pond { };
             terminal-rain-lightning = final.callPackage ./pkgs/terminal-rain-lightning { };
+            tetrs = final.callPackage ./pkgs/tetrs { };
           })
         ];
       };
