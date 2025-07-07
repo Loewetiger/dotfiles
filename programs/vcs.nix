@@ -17,7 +17,7 @@
       log.date = "iso";
       branch.sort = "-committerdate";
     };
-    ignores = [ ".jj" "mise.local.toml" ];
+    ignores = [ ".jj/" "mise.local.toml" ];
     delta = {
       enable = true;
       options = {
