@@ -36,7 +36,7 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
-          nix-index-database.hmModules.nix-index
+          nix-index-database.homeModules.nix-index
           { programs.nix-index-database.comma.enable = true; }
           ./home.nix
         ];
