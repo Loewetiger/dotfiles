@@ -30,6 +30,13 @@
           };
         }
         {
+          name = "yaml";
+          formatter = {
+            command = "${pkgs.yamlfmt}/bin/yamlfmt";
+            args = [ "-" ];
+          };
+        }
+        {
           name = "jjdescription";
           language-servers = [ "typos" ];
         }
@@ -38,6 +45,7 @@
           language-servers = [ "typos" ];
         }
       ];
+
       language-server.nixd = {
         command = "${pkgs.nixd}/bin/nixd";
       };
