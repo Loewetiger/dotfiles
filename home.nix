@@ -42,6 +42,7 @@
     mergiraf
     oha
     pv
+    shellcheck-minimal
     sshx
     tabiew
     tokei
