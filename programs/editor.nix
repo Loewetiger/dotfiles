@@ -23,6 +23,13 @@
           language-servers = [ "nixd" ];
         }
         {
+          name = "json";
+          formatter = {
+            command = "jq";
+            args = [ "--tab" "." ];
+          };
+        }
+        {
           name = "jjdescription";
           language-servers = [ "typos" ];
         }
