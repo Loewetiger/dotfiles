@@ -55,6 +55,7 @@
       nix_shell = {
         format = "via [$symbol$state]($style) ";
         symbol = " ";
+        heuristic = true;
       };
       python.symbol = " ";
       rust.symbol = " ";
