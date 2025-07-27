@@ -33,6 +33,7 @@
 
     dua
     dufs
+    dumbpipe
     dysk
     fx
     git-who
