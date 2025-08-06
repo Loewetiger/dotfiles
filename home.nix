@@ -38,7 +38,6 @@
     fx
     git-who
     hyperfine
-    jjui
     lnav
     mergiraf
     oha
