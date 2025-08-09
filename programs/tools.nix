@@ -40,7 +40,7 @@
 
   programs.less = {
     enable = true;
-    keys = ''
+    config = ''
       #env
       LESS = -R
     '';
