@@ -47,6 +47,7 @@
     sshx
     tabiew
     tokei
+    wget2
     xh
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

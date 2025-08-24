@@ -6,6 +6,7 @@
     shellAbbrs = {
       lg = "lazygit";
       se = "sudo --preserve-env=PATH env";
+      wg = "wget2";
     };
     functions = {
       hmu = {
