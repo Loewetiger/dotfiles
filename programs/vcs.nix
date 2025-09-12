@@ -1,8 +1,6 @@
 { vars, ... }:
 
 {
-  imports = [ ../modules/jjui.nix ];
-
   programs.git = {
     enable = true;
     userName = vars.git.name;
