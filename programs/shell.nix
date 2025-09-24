@@ -7,6 +7,7 @@
       lg = "lazygit";
       se = "sudo --preserve-env=PATH env";
       wg = "wget2";
+      ze = "zellij";
     };
     functions = {
       hmu = {
