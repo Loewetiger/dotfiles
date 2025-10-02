@@ -26,9 +26,12 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    # Stuff for fun :D
+    asciiquarium
     confetty
     neo
     pond
+    terminaltexteffects
     terminal-rain-lightning
     tetrs
 
