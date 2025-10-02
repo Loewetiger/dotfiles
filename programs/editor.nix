@@ -39,19 +39,20 @@
         }
         {
           name = "jjdescription";
-          language-servers = [ "typos" ];
+          language-servers = [ "harper" ];
         }
         {
           name = "git-commit";
-          language-servers = [ "typos" ];
+          language-servers = [ "harper" ];
         }
       ];
 
       language-server.nixd = {
         command = "${pkgs.nixd}/bin/nixd";
       };
-      language-server.typos = {
-        command = "${pkgs.typos-lsp}/bin/typos-lsp";
+      language-server.harper = {
+        command = "${pkgs.harper}/bin/harper-ls";
+        args = [ "--stdio" ];
       };
     };
   };
