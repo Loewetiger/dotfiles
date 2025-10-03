@@ -1,0 +1,142 @@
+From 31e959867401107b2879462092dc6444e6e6ebe1 Mon Sep 17 00:00:00 2001
+From: Loewetiger <loewetiger@tuta.io>
+Date: Thu, 2 Oct 2025 21:31:30 +0200
+Subject: [PATCH 2/4] Use a more sophisticated parser for jjdescription
+
+---
+ harper-ls/src/jjdescription_parser.rs | 116 ++++++++++++++++++++++----
+ 1 file changed, 101 insertions(+), 15 deletions(-)
+
+diff --git a/harper-ls/src/jjdescription_parser.rs b/harper-ls/src/jjdescription_parser.rs
+index db06515b..a661cb1e 100644
+--- a/harper-ls/src/jjdescription_parser.rs
++++ b/harper-ls/src/jjdescription_parser.rs
+@@ -1,5 +1,5 @@
+-use harper_core::Lrc;
+-use harper_core::parsers::{Markdown, MarkdownOptions, Parser};
++use harper_core::parsers::{Markdown, MarkdownOptions, Parser, PlainEnglish};
++use harper_core::{Lrc, Span, Token, TokenKind};
+ 
+ /// A Harper parser for Jjdescription files
+ #[derive(Clone)]
+@@ -18,18 +18,104 @@ impl JjdescriptionParser {
+ }
+ 
+ impl Parser for JjdescriptionParser {
+-    fn parse(&self, source: &[char]) -> Vec<harper_core::Token> {
+-        // Empty lines starting with "JJ:", since they are comments in jjdescription.
+-        // They can't be fully removed, since then the errors would appear in the wrong places.
+-        let text: String = source.iter().collect();
+-        let filtered_lines: Vec<char> = text
+-            .lines()
+-            .map(|line| if line.starts_with("JJ:") { "" } else { line })
+-            .collect::<Vec<_>>()
+-            .join("\n")
+-            .chars()
+-            .collect();
+-
+-        self.inner.parse(&filtered_lines)
++    fn parse(&self, source: &[char]) -> Vec<Token> {
++        JjdescriptionTokenizer::new(source).parse()
++    }
++}
++
++struct JjdescriptionTokenizer<'a> {
++    chars: &'a [char],
++    pos: usize,
++}
++
++impl<'a> JjdescriptionTokenizer<'a> {
++    fn new(chars: &'a [char]) -> Self {
++        Self { chars, pos: 0 }
++    }
++
++    /// Check if the current position starts with "JJ:"
++    fn starts_with_jj(&self) -> bool {
++        self.pos + 2 < self.chars.len()
++            && self.chars[self.pos] == 'J'
++            && self.chars[self.pos + 1] == 'J'
++            && self.chars[self.pos + 2] == ':'
++    }
++
++    /// Find the next newline character or end of slice
++    fn find_line_end(&self) -> usize {
++        for i in self.pos..self.chars.len() {
++            if self.chars[i] == '\n' {
++                return i; // Return the index of '\n'
++            }
++        }
++        self.chars.len() - 1 // End of slice if no newline found
++    }
++
++    /// Find the next occurrence of "JJ:" at the start of a line
++    fn find_next_jj_line(&self) -> Option<usize> {
++        let mut i = self.pos;
++
++        // Check if we're at the start of a line
++        let mut at_line_start = i == 0 || (i > 0 && self.chars[i - 1] == '\n');
++
++        while i < self.chars.len() {
++            if at_line_start && i + 2 < self.chars.len() {
++                if self.chars[i] == 'J' && self.chars[i + 1] == 'J' && self.chars[i + 2] == ':' {
++                    return Some(i);
++                }
++            }
++
++            // Move to next character
++            if self.chars[i] == '\n' {
++                at_line_start = true;
++            } else {
++                at_line_start = false;
++            }
++            i += 1;
++        }
++
++        None
++    }
++
++    /// Parse all tokens from the input
++    fn parse(&mut self) -> Vec<Token> {
++        let mut tokens = Vec::new();
++
++        while self.pos < self.chars.len() {
++            // Check if current position is at the start of a line
++            let at_line_start = self.pos == 0 || (self.pos > 0 && self.chars[self.pos - 1] == '\n');
++
++            if at_line_start && self.starts_with_jj() {
++                // Found a JJ line
++                let start = self.pos;
++                let end = self.find_line_end();
++                tokens.push(Token::new(Span::new(start, end + 1), TokenKind::Unlintable));
++                self.pos = end + 1; // Move past the newline
++            } else {
++                // Content section - find next JJ line or end
++                let start = self.pos;
++
++                // Skip current position to avoid immediate match
++                self.pos += 1;
++
++                let end = match self.find_next_jj_line() {
++                    Some(next_jj) => next_jj - 1, // Stop before the next JJ line
++                    None => self.chars.len() - 1, // Go to end of slice
++                };
++
++                if end >= start {
++                    let english_parser = PlainEnglish;
++                    let base = english_parser.parse(&self.chars[start..end + 1]);
++                    for mut english_token in base {
++                        english_token.span.push_by(start);
++                        tokens.push(Token::new(english_token.span, english_token.kind));
++                    }
++                }
++
++                self.pos = end + 1;
++            }
++        }
++
++        tokens
+     }
+ }
+-- 
+2.51.0
+

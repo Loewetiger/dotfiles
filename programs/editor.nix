@@ -51,7 +51,7 @@
         command = "${pkgs.nixd}/bin/nixd";
       };
       language-server.harper = {
-        command = "${pkgs.harper}/bin/harper-ls";
+        command = "${pkgs.harper-jj}/bin/harper-ls";
         args = [ "--stdio" ];
       };
     };

@@ -1,0 +1,87 @@
+From 331bb5704f313964f4da128da97baab9ed6f8f64 Mon Sep 17 00:00:00 2001
+From: Loewetiger <loewetiger@tuta.io>
+Date: Fri, 3 Oct 2025 08:30:04 +0200
+Subject: [PATCH 3/4] Use Markdown parser instead of PlainEnglish parser
+
+---
+ harper-ls/src/jjdescription_parser.rs | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
+
+diff --git a/harper-ls/src/jjdescription_parser.rs b/harper-ls/src/jjdescription_parser.rs
+index a661cb1e..317805cc 100644
+--- a/harper-ls/src/jjdescription_parser.rs
++++ b/harper-ls/src/jjdescription_parser.rs
+@@ -1,4 +1,4 @@
+-use harper_core::parsers::{Markdown, MarkdownOptions, Parser, PlainEnglish};
++use harper_core::parsers::{Markdown, MarkdownOptions, Parser};
+ use harper_core::{Lrc, Span, Token, TokenKind};
+ 
+ /// A Harper parser for Jjdescription files
+@@ -19,7 +19,7 @@ impl JjdescriptionParser {
+ 
+ impl Parser for JjdescriptionParser {
+     fn parse(&self, source: &[char]) -> Vec<Token> {
+-        JjdescriptionTokenizer::new(source).parse()
++        JjdescriptionTokenizer::new(source).parse(&self.inner)
+     }
+ }
+ 
+@@ -33,7 +33,6 @@ impl<'a> JjdescriptionTokenizer<'a> {
+         Self { chars, pos: 0 }
+     }
+ 
+-    /// Check if the current position starts with "JJ:"
+     fn starts_with_jj(&self) -> bool {
+         self.pos + 2 < self.chars.len()
+             && self.chars[self.pos] == 'J'
+@@ -41,17 +40,15 @@ impl<'a> JjdescriptionTokenizer<'a> {
+             && self.chars[self.pos + 2] == ':'
+     }
+ 
+-    /// Find the next newline character or end of slice
+     fn find_line_end(&self) -> usize {
+         for i in self.pos..self.chars.len() {
+             if self.chars[i] == '\n' {
+-                return i; // Return the index of '\n'
++                return i;
+             }
+         }
+-        self.chars.len() - 1 // End of slice if no newline found
++        self.chars.len() - 1
+     }
+ 
+-    /// Find the next occurrence of "JJ:" at the start of a line
+     fn find_next_jj_line(&self) -> Option<usize> {
+         let mut i = self.pos;
+ 
+@@ -77,8 +74,7 @@ impl<'a> JjdescriptionTokenizer<'a> {
+         None
+     }
+ 
+-    /// Parse all tokens from the input
+-    fn parse(&mut self) -> Vec<Token> {
++    fn parse(&mut self, text_parser: &dyn Parser) -> Vec<Token> {
+         let mut tokens = Vec::new();
+ 
+         while self.pos < self.chars.len() {
+@@ -92,7 +88,6 @@ impl<'a> JjdescriptionTokenizer<'a> {
+                 tokens.push(Token::new(Span::new(start, end + 1), TokenKind::Unlintable));
+                 self.pos = end + 1; // Move past the newline
+             } else {
+-                // Content section - find next JJ line or end
+                 let start = self.pos;
+ 
+                 // Skip current position to avoid immediate match
+@@ -104,8 +99,7 @@ impl<'a> JjdescriptionTokenizer<'a> {
+                 };
+ 
+                 if end >= start {
+-                    let english_parser = PlainEnglish;
+-                    let base = english_parser.parse(&self.chars[start..end + 1]);
++                    let base = text_parser.parse(&self.chars[start..end + 1]);
+                     for mut english_token in base {
+                         english_token.span.push_by(start);
+                         tokens.push(Token::new(english_token.span, english_token.kind));
+-- 
+2.51.0
+
