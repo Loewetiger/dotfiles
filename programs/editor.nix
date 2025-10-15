@@ -86,5 +86,12 @@ in
       };
     };
   };
+
+  xdg.configFile = {
+    "harper-ls/dictionary.txt".text = ''
+      Nuxt
+      mise
+    '';
+  };
 }
 
