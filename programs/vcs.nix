@@ -3,9 +3,9 @@
 {
   programs.git = {
     enable = true;
-    userName = vars.git.name;
-    userEmail = vars.git.email;
-    extraConfig = {
+    settings = {
+      user.name = vars.git.name;
+      user.email = vars.git.email;
       diff = {
         algorithm = "histogram";
         colorMoved = "default";
@@ -18,11 +18,13 @@
       branch.sort = "-committerdate";
     };
     ignores = [ ".jj/" "mise.local.toml" ];
-    delta = {
-      enable = true;
-      options = {
-        hyperlinks = true;
-      };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      hyperlinks = true;
     };
   };
 
