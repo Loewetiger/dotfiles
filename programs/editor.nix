@@ -9,7 +9,7 @@ in
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    extraPackages = with pkgs; [ typescript-language-server ];
+    extraPackages = with pkgs; [ nixd typescript-language-server ];
     settings = {
       theme = "onedark";
       editor = {
@@ -26,7 +26,6 @@ in
           name = "nix";
           formatter.command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
           auto-format = true;
-          language-servers = [ "nixd" ];
         }
         {
           name = "json";
@@ -54,9 +53,6 @@ in
         }
       ];
 
-      language-server.nixd = {
-        command = "${pkgs.nixd}/bin/nixd";
-      };
       language-server.harper = {
         command = "${pkgs.harper}/bin/harper-ls";
         args = [ "--stdio" ];
