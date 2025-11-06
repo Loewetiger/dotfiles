@@ -45,6 +45,7 @@
     mergiraf
     oha
     pv
+    rainfrog
     shellcheck-minimal
     sshx
     tabiew
