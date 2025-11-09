@@ -41,15 +41,6 @@
         disabled = true;
       };
       aws.symbol = "  ";
-      direnv = {
-        disabled = false;
-        format = "[$loaded$allowed]($style)";
-        allowed_msg = "";
-        not_allowed_msg = "";
-        denied_msg = "󱧴 ";
-        loaded_msg = "";
-        unloaded_msg = "";
-      };
       elixir.symbol = " ";
       gleam.symbol = " ";
       golang.symbol = " ";
@@ -82,7 +73,10 @@
     enableFishIntegration = true;
   };
 
-  programs.fzf.enable = true;
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = false;
+  };
 
   programs.zellij = {
     enable = true;
@@ -93,11 +87,6 @@
       show_startup_tips = false;
       ui.pane_frames.hide_session_name = true;
     };
-  };
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
   };
 
   programs.command-not-found.enable = false;

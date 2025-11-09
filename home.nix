@@ -31,8 +31,8 @@
     confetty
     neo
     pond
-    terminaltexteffects
     terminal-rain-lightning
+    terminaltexteffects
     tetrs
 
     dua
@@ -44,9 +44,7 @@
     lnav
     mergiraf
     oha
-    pv
     rainfrog
-    shellcheck-minimal
     sshx
     tabiew
     tokei
@@ -102,10 +100,7 @@
   #
   #  /etc/profiles/per-user/leon/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # Only display direnv errors (removes a lot of noise)
-    DIRENV_LOG_FORMAT = "";
-  };
+  home.sessionVariables = { };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
