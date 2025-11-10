@@ -3,7 +3,13 @@
 {
   programs.mise.enable = true;
 
-  programs.bat.enable = true;
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "TwoDark";
+      style = "-numbers,-header,-grid";
+    };
+  };
 
   programs.eza = {
     enable = true;
