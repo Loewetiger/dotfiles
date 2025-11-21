@@ -33,6 +33,7 @@
     asciiquarium
     cbonsai
     confetty
+    gitlogue
     neo
     pipes
     pond
