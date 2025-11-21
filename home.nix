@@ -31,8 +31,10 @@
   home.packages = with pkgs; [
     # Stuff for fun :D
     asciiquarium
+    cbonsai
     confetty
     neo
+    pipes
     pond
     terminal-rain-lightning
     terminaltexteffects
