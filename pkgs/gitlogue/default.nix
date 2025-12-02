@@ -2,20 +2,20 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "gitlogue";
-  version = "0.3.0";
+  version = "0.5.0";
 
   src = fetchFromGitHub {
     owner = "unhappychoice";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-IKCjv33I6bM5PSp1IBXEArHgNF1hV9J+Zko0uV2OPZA=";
+    hash = "sha256-OKRgtWa1HbUgczuS0EdMgosuKPaZJhzIfjwKZAAaBCs=";
   };
 
   nativeBuildInputs = [
     perl
   ];
 
-  cargoHash = "sha256-j8h+EI+vOf8nN69ROFiwuUBRi84T/QdhbdMpAMupkoM=";
+  cargoHash = "sha256-cq1bjOxuGJDRLoO0p5tmGF4IjUojXF52p/n6mugPdPg=";
 
   meta = with lib; {
     description = "A cinematic Git commit replay tool for the terminal, turning your Git history into a living, animated story.";
