@@ -44,6 +44,7 @@
     dua
     dufs
     dysk
+    fta
     fx
     git-who
     hyperfine

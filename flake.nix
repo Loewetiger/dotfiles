@@ -21,6 +21,7 @@
         inherit system;
         overlays = [
           (final: prev: {
+            fta = final.callPackage ./pkgs/fta { };
             gitlogue = final.callPackage ./pkgs/gitlogue { };
             onedark-yazi = final.callPackage ./pkgs/onedark-yazi { };
             pond = final.callPackage ./pkgs/pond { };
