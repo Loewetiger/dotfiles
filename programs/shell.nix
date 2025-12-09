@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.fish = {
@@ -29,6 +29,7 @@
 
   programs.nushell = {
     enable = true;
+    plugins = with pkgs.nushellPlugins; [ polars ];
   };
 
   programs.starship = {
