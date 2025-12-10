@@ -30,6 +30,7 @@
   # environment.
   home.packages = with pkgs; [
     # Stuff for fun :D
+    ascii_moon
     asciiquarium
     cbonsai
     confetty

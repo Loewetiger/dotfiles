@@ -21,6 +21,7 @@
         inherit system;
         overlays = [
           (final: prev: {
+            ascii_moon = final.callPackage ./pkgs/ascii_moon { };
             fta = final.callPackage ./pkgs/fta { };
             gitlogue = final.callPackage ./pkgs/gitlogue { };
             onedark-yazi = final.callPackage ./pkgs/onedark-yazi { };
