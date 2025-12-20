@@ -24,6 +24,7 @@
     };
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      fish_config theme choose default-rgb
     '';
   };
 
