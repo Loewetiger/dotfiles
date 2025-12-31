@@ -52,6 +52,9 @@
 
   programs.lazygit = {
     enable = true;
+    # The integration allows lazygit to change the working directory.
+    # I don't need this, and it conflicts with my abbreviation.
+    enableFishIntegration = false;
     settings = {
       gui.spinner = {
         # Custom spinner from FiraCode
