@@ -12,9 +12,13 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    witr = {
+      url = "github:pranshuparmar/witr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nix-index-database, ... }:
+  outputs = { nixpkgs, home-manager, nix-index-database, witr, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -28,6 +32,7 @@
             pond = final.callPackage ./pkgs/pond { };
             terminal-rain-lightning = final.callPackage ./pkgs/terminal-rain-lightning { };
             tetrs = final.callPackage ./pkgs/tetrs { };
+            witr = witr.packages.${system}.default;
           })
         ];
       };
