@@ -28,6 +28,7 @@
             ascii_moon = final.callPackage ./pkgs/ascii_moon { };
             fta = final.callPackage ./pkgs/fta { };
             gitlogue = final.callPackage ./pkgs/gitlogue { };
+            hindsight = final.callPackage ./pkgs/hindsight { };
             onedark-yazi = final.callPackage ./pkgs/onedark-yazi { };
             pond = final.callPackage ./pkgs/pond { };
             terminal-rain-lightning = final.callPackage ./pkgs/terminal-rain-lightning { };
