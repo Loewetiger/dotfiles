@@ -2,16 +2,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "ascii_moon";
-  version = "0.3.2";
+  version = "0.4.0";
 
   src = fetchFromGitHub {
     owner = "rockydd";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-F0N/2252oEKN4SktcNQPmKWK5Tbsgv4FmEV+wXdt2pk=";
+    hash = "sha256-RWPXB3DSbwKm2AFgvD3/Qg7HQGiiEI+AVb0iuqZRCQo=";
   };
 
-  cargoHash = "sha256-p4VjqWPXvPr/i5IaaTldrOgPzRzcP2JHSoT79pSC8sM=";
+  cargoHash = "sha256-IBHPQWJcHKRRLlyaTWJlCNhCMyanBXPEWdPXUDPLv3c=";
 
   meta = with lib; {
     description = "A TUI (Terminal User Interface) application written in Rust that displays the moon phase in ASCII art.";
