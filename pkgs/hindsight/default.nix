@@ -2,7 +2,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "hindsight";
-  version = "efbabf4";
+  version = "397a8f6";
 
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [ openssl ];
@@ -10,8 +10,8 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "chaosprint";
     repo = pname;
-    rev = "efbabf48603fd4f9cbff44e4057a2eb648c71094";
-    hash = "sha256-8KfiPfrWf9ioA2+6gF1PSQi6ED0Grh+H5jZGTEg4m5c=";
+    rev = "397a8f6fe69307a8ef937e0a96ccb18fd04dc859";
+    hash = "sha256-OcvEd0aajjF84ltNhYNabE3kxdCm7MmCNNBq+HaDwp0=";
   };
 
   cargoHash = "sha256-lLN+QswPrdY19yW4w9jPA+6ebqvcOa80bY3B1nuxdIw=";
