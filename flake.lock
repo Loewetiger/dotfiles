@@ -25,11 +25,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769776025,
-        "narHash": "sha256-70a1kVC08AMTvPc7iqQsJbbD4Y1fukakMVudz4oY9SM=",
+        "lastModified": 1769978395,
+        "narHash": "sha256-gj1yP3spUb1vGtaF5qPhshd2j0cg4xf51pklDsIm19Q=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0fba737f8d5571d41467f3d99a878e11b8c0f0f0",
+        "rev": "984708c34d3495a518e6ab6b8633469bbca2f77a",
         "type": "github"
       },
       "original": {
@@ -46,15 +46,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1769821456,
-        "narHash": "sha256-JsMYmUbZD0/iqOZd8m2T5fTA+P3I7gsndEodIsfJHxg=",
+        "lastModified": 1769819686,
+        "narHash": "sha256-G4p8z4eRKpDEn599Sai9+PjKCPO/UYo/5X2YRaMnMWE=",
         "owner": "jordond",
         "repo": "jolt",
-        "rev": "1d3a4f85c6242536574a84c69e5c7885e45de1ae",
+        "rev": "819fa361fe07a766960f45816931491e22b9e5bb",
         "type": "github"
       },
       "original": {
         "owner": "jordond",
+        "ref": "1.1.3",
         "repo": "jolt",
         "type": "github"
       }
@@ -81,11 +82,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1769770707,
-        "narHash": "sha256-pZilzGn9G1FCxqow3T6q4XvdH4g3opVqr/l3HhQbOSM=",
+        "lastModified": 1769987528,
+        "narHash": "sha256-sQ6JzVhMuNcIz95KFfpolqMNbMqbi8OnI1EUIagbWtk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e522e49851239164443baaef4432890c831e4e71",
+        "rev": "faa7f0dbe6480ab660843ab5f44735965f6283e9",
         "type": "github"
       },
       "original": {
@@ -126,15 +127,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1769086726,
-        "narHash": "sha256-1FCxiB1T1OX0RwukUS+LB1BAUpzskLb5kyyXPoP+r3U=",
+        "lastModified": 1769004994,
+        "narHash": "sha256-4VyGp0UjniLKoY5q0ZUvg2vUj7mjzU20nTxkpsUizRU=",
         "owner": "pranshuparmar",
         "repo": "witr",
-        "rev": "ce90dd265a1c376ac200da0bdaa1fd0712e4f8bb",
+        "rev": "135a18f312334ac7ab85edd325802b2902f1f187",
         "type": "github"
       },
       "original": {
         "owner": "pranshuparmar",
+        "ref": "v0.2.6",
         "repo": "witr",
         "type": "github"
       }

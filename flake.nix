@@ -13,11 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     witr = {
-      url = "github:pranshuparmar/witr";
+      url = "github:pranshuparmar/witr/v0.2.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     jolt = {
-      url = "github:jordond/jolt";
+      url = "github:jordond/jolt/1.1.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
