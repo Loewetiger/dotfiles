@@ -16,9 +16,13 @@
       url = "github:pranshuparmar/witr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    jolt = {
+      url = "github:jordond/jolt";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nix-index-database, witr, ... }:
+  outputs = { nixpkgs, home-manager, nix-index-database, witr, jolt, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -32,6 +36,7 @@
             in
             autoPackages // {
               witr = witr.packages.${final.system}.default;
+              jolt = jolt.packages.${final.system}.default;
             }
           )
         ];

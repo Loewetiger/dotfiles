@@ -51,6 +51,7 @@
     fx
     git-who
     hyperfine
+    jolt
     lnav
     mergiraf
     oha
