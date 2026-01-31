@@ -32,6 +32,7 @@
     # Stuff for fun :D
     ascii_moon
     asciiquarium
+    ballin
     cbonsai
     confetty
     gitlogue
