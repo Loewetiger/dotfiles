@@ -1,4 +1,4 @@
-{ vars, ... }:
+{ vars, pkgs, ... }:
 
 {
   programs.git = {
@@ -9,6 +9,7 @@
       diff = {
         algorithm = "histogram";
         colorMoved = "default";
+        sopsdiffer.textconv = "${pkgs.sops}/bin/sops decrypt";
       };
       init.defaultBranch = "main";
       merge.conflictstyle = "zdiff3";
@@ -18,6 +19,9 @@
       branch.sort = "-committerdate";
     };
     ignores = [ ".jj/" "mise.local.toml" ];
+    attributes = [
+      "*.enc.yaml diff=sopsdiffer"
+    ];
   };
 
   programs.delta = {
