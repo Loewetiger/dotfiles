@@ -56,6 +56,7 @@
     mergiraf
     oha
     rainfrog
+    sops
     sshx
     tabiew
     tokei
