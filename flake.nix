@@ -35,8 +35,8 @@
                 (prev.lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./pkgs));
             in
             autoPackages // {
-              witr = witr.packages.${final.system}.default;
-              jolt = jolt.packages.${final.system}.default;
+              witr = witr.packages.${final.stdenv.hostPlatform.system}.default;
+              jolt = jolt.packages.${final.stdenv.hostPlatform.system}.default;
             }
           )
         ];
