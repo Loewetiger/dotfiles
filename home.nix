@@ -42,7 +42,7 @@
     pond
     terminal-rain-lightning
     terminaltexteffects
-    tetrs
+    tetro
 
     dua
     dufs
