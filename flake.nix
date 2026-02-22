@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     witr = {
-      url = "github:pranshuparmar/witr/v0.2.7";
+      url = "github:pranshuparmar/witr/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
