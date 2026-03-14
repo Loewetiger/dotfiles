@@ -44,6 +44,7 @@
     terminaltexteffects
     tetro
 
+    dig
     dua
     dufs
     dysk
