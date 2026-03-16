@@ -40,6 +40,7 @@
     neo
     pipes
     pond
+    termcraft
     terminal-rain-lightning
     terminaltexteffects
     tetro
