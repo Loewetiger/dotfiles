@@ -21,8 +21,6 @@
 
   programs.fd.enable = true;
 
-  programs.yt-dlp.enable = true;
-
   programs.yazi = {
     enable = true;
     flavors.onedark = pkgs.onedark-yazi;
