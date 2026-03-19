@@ -36,7 +36,7 @@
     cbonsai
     confetty
     gitlogue
-    hindsight
+    gittop
     neo
     pipes
     pond
