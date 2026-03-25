@@ -1,23 +1,24 @@
-{ lib, stdenv, fetchzip }:
+{ lib, fetchFromGitHub, rustPlatform }:
 
-stdenv.mkDerivation rec {
-  author = "Strophox";
+rustPlatform.buildRustPackage rec {
   pname = "tetro-tui";
-  version = "1.1.0";
+  version = "2.1.0";
 
-  src = fetchzip {
-    url = "https://github.com/Strophox/tetro-tui/releases/download/v${version}/x86_64-unknown-linux-gnu.zip";
-    hash = "sha256-vcAGV70Sd59O4dlkCKVtOaAYOh2sg/321G4PAooZ5O8=";
+  src = fetchFromGitHub {
+    owner = "Strophox";
+    repo = "tetro-tui";
+    rev = "v${version}";
+    hash = "sha256-LJeWszHq6QVsK4e8Ey27mzHjmkPF1C6x681UsCu/zsE=";
   };
 
-  installPhase = ''
-    mkdir -p $out/bin
-    cp $src/tetro-tui $out/bin/tetro
-    chmod +x $out/bin/tetro
+  cargoHash = "sha256-y0TH7DTRhxYqNBLzlj+xXZTCipUsBM60DVTCA/wSDbY=";
+
+  postInstall = ''
+    mv $out/bin/tetro-tui $out/bin/tetro
   '';
 
   meta = with lib; {
-    description = "A cross-platform terminal game where tetrominos fall and stack.";
+    description = "A terminal-based but modern tetromino-stacking game that is very customizable and cross-platform.";
     homepage = "https://github.com/Strophox/tetro-tui";
     license = licenses.mit;
     maintainers = [ ];
