@@ -2,16 +2,16 @@
 
 buildGo126Module rec {
   pname = "gittop";
-  version = "0.3.0";
+  version = "0.4.0";
 
   src = fetchFromGitHub {
     owner = "hjr265";
     repo = "gittop";
     rev = "v${version}";
-    hash = "sha256-MmuBNzydnvLvIfYUERrqpb9QZYno7r62L33wRcDEDaw=";
+    hash = "sha256-hRnO7e+1BooeDl+nK8+DzEdB4oj9cXokz1gfeWT8/Cg=";
   };
 
-  vendorHash = "sha256-f2B9vARgoZYqZa0P2HmsP+eHc1bZUSWSuHAr7AId6Lc=";
+  vendorHash = "sha256-vvpMEu8/OOAADfWZTbJmq5osAPfz36ZfHzjXro6oNg0=";
 
   # rename the binary to git-top so it can also be used as "git top"
   postInstall = ''
