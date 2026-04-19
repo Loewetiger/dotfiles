@@ -2,16 +2,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "tetro-tui";
-  version = "3.0.0";
+  version = "3.1.0";
 
   src = fetchFromGitHub {
     owner = "Strophox";
     repo = "tetro-tui";
     rev = "v${version}";
-    hash = "sha256-fuVXU7IQhTIWrO1MhGucixZ4dbSlnQXXqWAD61NJPSE=";
+    hash = "sha256-nT3NLrbjMZVAb7K75QZkLbZDDi1jKLNsoDnb3ENELrk=";
   };
 
-  cargoHash = "sha256-ErkvqT0JrA4gxsAilTc+rhdFmALZMcP4nvZTK62T38s=";
+  cargoHash = "sha256-hOpjoKq3QKffa4qTlN1tvLW739UggRWAGe464UqkpiM=";
 
   postInstall = ''
     mv $out/bin/tetro-tui $out/bin/tetro
